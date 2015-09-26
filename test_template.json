@@ -1,0 +1,79 @@
+{
+  "gender": {
+    "weighted": {
+      "male": 75,
+      "female": 25
+    }
+  },
+  "origin": {
+    "weighted": {
+      "United States": 80,
+      "Mexico": 20
+    }
+  },
+  "attributes": {
+    "group": {
+    "body": {
+      "normal": {
+        "mean": 4,
+        "std_dev": 1
+      }
+    },
+    "agility": {
+      "normal": {
+        "mean": 4,
+        "std_dev": 1
+      }
+    },
+    "reaction": {
+      "normal": {
+        "mean": 3,
+        "std_dev": 1
+      }
+    },
+    "strength": {
+      "normal": {
+        "mean": 4,
+        "std_dev": 1
+      }
+    },
+    "willpower": {
+      "normal": {
+        "mean": 3,
+        "std_dev": 1
+      }
+    },
+    "logic": {
+      "normal": {
+        "mean": 2,
+        "std_dev": 1
+      }
+    },
+    "initiative": {
+      "normal": {
+        "mean": 3,
+        "std_dev": 1
+      }
+    },
+    "charisma": {
+      "normal": {
+        "mean": 3,
+        "std_dev": 1
+      }
+    },
+    "essence": {
+      "value": 6
+    }
+  }
+  },
+  "skills": {
+    "group": {
+      "intimidation": {
+        "normal": {
+          "mean": 3,
+          "std_dev": 1
+        }
+      }
+    }
+  }
+}
