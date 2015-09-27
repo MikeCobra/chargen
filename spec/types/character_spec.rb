@@ -20,7 +20,7 @@ RSpec.describe Character, "#handle" do
   end
 
   context "when a template_file is given" do
-    it "should load the file as a template and us as a group" do
+    it "should load the file as a template and use as a group" do
       template_file = 'test.json'
       template_file_contents = '{\'thing\' => { \'value\' => 5}}'
       template = {'thing' => { 'value' => 5}}
