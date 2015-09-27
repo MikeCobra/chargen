@@ -1,13 +1,9 @@
 require 'simple-random'
 
 class Normal
-  def initialize(random_generator = nil)
-      if random_generator.nil? then
-        @random_generator = SimpleRandom.new
-        @random_generator.set_seed
-      else
-        @random_generator = random_generator
-      end
+  def initialize
+      @random_generator = SimpleRandom.new
+      @random_generator.set_seed
   end
 
   def handle(options)
