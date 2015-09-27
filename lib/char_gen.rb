@@ -1,15 +1,12 @@
 require 'faraday'
 require 'json'
 
-require_relative 'character'
+require_relative 'types/character'
 
 filename = ARGV[0]
 
-template_file = File.open filename, 'rb'
-template_string = template_file.read
-template = JSON.parse template_string
-
-character = Character.generate(template)
+character_handler = Character.new
+character = character_handler.handle({'template_file' => filename})
 
 conn = Faraday.new(:url => 'http://api.uinames.com') do |faraday|
   faraday.request :url_encoded
