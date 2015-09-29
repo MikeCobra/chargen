@@ -14,9 +14,7 @@ class Character
       fail 'Cannot use a template and and a template_file.'
     end
 
-    if template.nil?
-      template = resolve_file(template_file)
-    end
+    template.nil? && template = resolve_file(template_file)
 
     @group_handler.handle(template)
   end
