@@ -4,15 +4,13 @@ require_relative 'types/group'
 require_relative 'types/weighted'
 
 class FieldHandler
-  def handle(parent, field)
-    field_name = field[0]
-    field_options = field[1]
-
-    field_type = field_options.keys[0]
+  def handle(field)
+    field_type = field.keys[0]
+    field_options = field[field_type]
 
     handler = select_handler(field_type)
 
-    parent[field_name] = handler.handle(field_options[field_type])
+    handler.handle(field_options)
   end
 
   private
