@@ -9,5 +9,5 @@ gem 'simple-random'
 
 group :test do
   gem 'rspec'
-  gem 'simplecov', :require => false
+  gem 'codeclimate-test-reporter', group: :test, require: nil
 end
