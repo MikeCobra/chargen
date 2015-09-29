@@ -1,12 +1,14 @@
 require_relative '../field_handler'
 
 class Group
-  def handle(options)
-    field_handler = FieldHandler.new
+  def initialize
+    @field_handler = FieldHandler.new
+  end
 
+  def handle(options)
     hash = {}
     options.each do |field|
-      field_handler.handle hash, field
+      @field_handler.handle hash, field
     end
     hash
   end
