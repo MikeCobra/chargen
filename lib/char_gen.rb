@@ -18,4 +18,4 @@ name = JSON.parse(response.body)
 
 character['name'] = "#{name['name']} #{name['surname']}"
 
-puts JSON.generate character
+puts JSON.pretty_generate character
