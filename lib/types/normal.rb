@@ -19,10 +19,8 @@ class Normal
 
     value = @random_generator.normal(mean, std_dev).round
 
-    if min && value < min then value = min end
+    value = (min && value < min) ? min : value
 
-    if max && value > max then value = max end
-
-    value
+    value = (max && value > max) ? max : value
   end
 end
