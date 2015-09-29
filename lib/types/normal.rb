@@ -8,7 +8,7 @@ class Normal
 
   def handle(options)
     extract_options(options)
-    
+
     if (!@min.nil? && !@max.nil?) && (@min > @max)
       fail "Minimum #{@min} is greater than Maximum #{@max}."
     end
@@ -32,5 +32,7 @@ class Normal
     value = (@min && value < @min) ? @min : value
 
     value = (@max && value > @max) ? @max : value
+
+    value
   end
 end
