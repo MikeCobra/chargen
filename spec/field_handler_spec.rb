@@ -26,15 +26,27 @@ RSpec.describe FieldHandler, "#handle" do
     @field_handler = FieldHandler.new
   end
 
-  it "applies the correct handler to the field and return the result" do
-    expect(@value).to receive(:handle)
-                              .with('options')
-                              .and_return('result')
+  context "when a supported typed is given" do
+    it "applies the correct handler to the field and return the result" do
+      expect(@value).to receive(:handle)
+                                .with('options')
+                                .and_return('result')
 
-    options = { 'value' => 'options' }
+      options = { 'value' => 'options' }
 
-    result = @field_handler.handle(options)
+      result = @field_handler.handle(options)
 
-    expect(result).to eq('result')
+      expect(result).to eq('result')
+    end
   end
+
+context "when an unsupported typed is given" do
+  it "raises an error" do
+    options = { 'not_a_type' => 'options' }
+
+    expect {
+      @field_handler.handle(options)
+    }.to raise_error(RuntimeError)
+  end
+end
 end
