@@ -2,8 +2,8 @@ require 'simple-random'
 
 class Normal
   def initialize
-      @random_generator = SimpleRandom.new
-      @random_generator.set_seed
+    @random_generator = SimpleRandom.new
+    @random_generator.set_seed
   end
 
   def handle(options)
@@ -13,19 +13,15 @@ class Normal
     min = options['min']
     max = options['max']
 
-    if (!min.nil? and !max.nil?) and (min > max) then
-      raise "Minimum #{min} is greater than Maximum #{max}."
+    if (!min.nil? && !max.nil?) && (min > max)
+      fail "Minimum #{min} is greater than Maximum #{max}."
     end
 
     value = @random_generator.normal(mean, std_dev).round
 
-    if min and value < min then
-      value = min
-    end
+    if min && value < min then value = min end
 
-    if max and value > max then
-      value = max
-    end
+    if max && value > max then value = max end
 
     value
   end

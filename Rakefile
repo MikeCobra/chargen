@@ -6,6 +6,6 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = '--format documentation'
 end
 
-task :test => [:spec]
+task test: [:spec]
 
-task :default => [:test]
+task default: [:test]
