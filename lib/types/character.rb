@@ -15,12 +15,18 @@ class Character
     end
 
     if template.nil?
-      template_string = File.open(template_file, 'r') do |file|
-        file.read
-      end
-      template = JSON.parse(template_string)
+      template = resolve_file(template_file)
     end
 
     @group_handler.handle(template)
+  end
+
+  private
+
+  def resolve_file(file)
+    template_string = File.open(file, 'r') do |f|
+      f.read
+    end
+    JSON.parse(template_string)
   end
 end
