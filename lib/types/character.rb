@@ -7,24 +7,19 @@ class Character
   end
 
   def handle(options)
-    template = options['template']
-    template_file = options['template_file']
+    template = options.fetch 'template' {fail 'Template not found'}
+    template_file = options.fetch 'template_file' {fail 'Template file not found'}
 
-    if !template.nil? && !template_file.nil?
-      fail 'Cannot use a template and and a template_file.'
-    end
+    fail 'Cannot use a template and and a template_file.' unless template.nil? || template_file.nil?
 
-    template.nil? && template = resolve_file(template_file)
+    template ||= resolve_file(template_file)
 
-    @group_handler.handle(template)
+    @group_handler.handle template
   end
 
   private
 
   def resolve_file(file)
-    template_string = File.open(file, 'r') do |f|
-      f.read
-    end
-    JSON.parse(template_string)
+    JSON.parse( File.open(file, 'r') {  |f| f.read  }  )
   end
 end
