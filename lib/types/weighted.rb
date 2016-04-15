@@ -2,7 +2,6 @@ require 'pickup'
 
 class Weighted
   def handle(options)
-    pickup = Pickup.new options
-    pickup.pick
+    Pickup.new(options).pick
   end
 end

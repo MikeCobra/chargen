@@ -7,9 +7,7 @@ class Group
 
   def handle(options)
     hash = {}
-    options.each do |name, content|
-      hash[name] = @field_handler.handle content
-    end
+    options.each {  |name, content| hash[name] = @field_handler.handle content  }
     hash
   end
 end

@@ -8,14 +8,9 @@ class Normal
 
   def handle(options)
     extract_options(options)
+    fail "Minimum #{@min} is greater than Maximum #{@max}." unless (@min.nil? && @max.nil?) || @min > @max
 
-    if (!@min.nil? && !@max.nil?) && (@min > @max)
-      fail "Minimum #{@min} is greater than Maximum #{@max}."
-    end
-
-    value = @random_generator.normal(@mean, @std_dev).round
-
-    apply_limits(value)
+    apply_limits @random_generator.normal(@mean, @std_dev).round
   end
 
   private
@@ -30,9 +25,6 @@ class Normal
 
   def apply_limits(value)
     value = (@min && value < @min) ? @min : value
-
     value = (@max && value > @max) ? @max : value
-
-    value
   end
 end
